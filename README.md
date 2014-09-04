@@ -97,7 +97,7 @@ And... Voilà ! Translator is working quietly...
 
 If you read until here, you should have a question in mind...
 
-"But how do I specify what is to translate ?"
+*"But how do I specify what is to translate ?"*
 
 Well, it's easy (remember that I personally use Translator to minimise the work I must do to have a multilingual application, so it has to be easy).
 
@@ -115,7 +115,109 @@ So you can do something like :
     
 Your UI and your code is still easily readable, so easy to maintain.
 
-## There's more...
+## Language switching
+
+I imagine you'll want to have some kind of preference panel letting the user choose its prefered language. 
+
+To do so, you will put a popup button. That's a great idea. And Translator will help you.
+
+In your awakeFromCib (or where you like to put it), use :
+
+    [buttonLanguage removeAllItems];
+
+    [buttonLanguage addItemsWithTitles:
+        [[TranslatorController sharedTranslator] supportedLanguagesNames]];
+    
+Then, if oldLocale contains the current language :
+
+    [buttonLanguage selectItemWithTitle:
+        [[TranslatorController sharedTranslator] languageNameForLanguage:oldLocale]];
+
+Now, let the user choose a language and perform whatever confirmation you like. Then :
+
+    var newLocale = [[TranslatorController sharedTranslator] 
+        languageForLanguageName:[buttonLanguage title]];
+        
+If newLocale is different from oldLocale, it's time de change your UI language :
+
+    [[TranslatorController sharedTranslator] setLanguage:newLocale];
+
+And in a snap (or an eye blink), your app turns from Russian to Swedish.
+
+
+## Autolayout
+
+Using a single CIB file for multiple languages is sometimes hard as text width may vary a lot (for example, "birthday" is shorter than its French counterpart "anniversaire").
+
+In most case, it's easy to handle : 
+
+- right align labels that are before fields / popup / ...
+- sometimes just use wider controls, textfields, ...
+- etc
+
+But when you have, say a dialog like a preference pane, and that you precisely right aligned your beautiful buttons (from right to left) "Save" & "Cancel" and when your user just switch to another language, everything may become messy (and you don't like that, of course, just look at you desktop...  ;)
+
+You can then use the Translator autolayout feature. Simply add those two user defined runtime attributes on your two buttons :
+
+    keepRight <number> xx
+    minWidth  <number> yy
+    
+where xx is the distance to keep from the right neighbor (or border if the button is the first) and yy is the minimum width for the button.
+
+Of course, keepLeft has the same effect but from left to right.
+
+By experience, I personally use 18 as xx and 100 as yy on both "Save" & "Cancel" buttons.
+
+
+## Some other utilities
+
+Returns the current locale :
+
+    [[TranslatorController sharedTranslator] currentLanguage];
+
+Returns the current language name :
+
+    [[TranslatorController sharedTranslator] currentLanguageName];
+
+Returns an array with all supported locales :
+
+    [[TranslatorController sharedTranslator] supportedLanguages];
+
+Returns an array with all supported languages :
+
+    [[TranslatorController sharedTranslator] supportedLanguagesNames];
+
+Returns the locale corresponding to the language :
+
+    [[TranslatorController sharedTranslator] languageFromLanguageName:@"Français"];
+    
+Returns the language corresponding to the locale :
+
+    [[TranslatorController sharedTranslator] languageNameFromLanguage:@"fr"];
+
+Return the browser language :
+
+    [[TranslatorController sharedTranslator] browserLanguage];
+
+Return the default language :
+
+    [[TranslatorController sharedTranslator] defaultLanguage];
+
+Return YES if Translator can handle the locale :
+
+    [[TranslatorController sharedTranslator] canSupportLanguage:@"it"];
+
+
+## What's next ?
+
+As soon as I can find time, here is my to-do list :
+
+- try to manage vertical positioning as well as horizontal is done today
+- add various checking
+- fix a positioning problem in toolbars
+- try to write a tool that can extract strings from CIB and code and create dictionaries
+
+
 
 
 Next to-do : complete this file...  ;)

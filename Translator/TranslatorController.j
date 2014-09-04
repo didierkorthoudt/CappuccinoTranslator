@@ -23,16 +23,6 @@
 
 _sharedTranslatorController = nil;
 
-// TODO : tester avec les alertes
-// TODO : gérer également les problèmes avec les text fields (ex : l'alerte en NL qd démarrage OK)
-
-// TODO : faire une méthode qui fournit un menu "Langue" (indiqué dans la langue du navigateur) avec le logo spécial, à inclure, par exemple, sur un panneau de login
-// TODO : faire des vérifications de double déclaration de langues (supported, known)
-// TODO : fix : recalcul des positions pour toolbar
-
-// TODO : faire un outil qui crée un fichier .xstrings à traduire
-// TODO : faire un outil qui compile un fichier .strings en .xstring (de mémoire une commande putil)
-
 
 @implementation TranslatorController : CPObject
 {
