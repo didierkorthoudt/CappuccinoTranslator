@@ -155,7 +155,7 @@ In most case, it's easy to handle :
 - sometimes just use wider controls, textfields, ...
 - etc
 
-But when you have, say a dialog like a preference pane, and that you precisely right aligned your beautiful buttons (from right to left) "Save" & "Cancel" and when your user just switch to another language, everything may become messy (and you don't like that, of course, just look at you desktop...  ;)
+But when you have, say a dialog like a preference pane, and that you precisely right aligned your beautiful buttons (from right to left) "Save" & "Cancel" and when your user just switch to another language, everything may become messy (and you don't like that, of course, just look at your desktop...  ;)
 
 You can then use the Translator autolayout feature. Simply add those two user defined runtime attributes on your two buttons :
 
@@ -218,6 +218,3 @@ As soon as I can find time, here is my to-do list :
 - try to write a tool that can extract strings from CIB and code and create dictionaries
 
 
-
-
-Next to-do : complete this file...  ;)
