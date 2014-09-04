@@ -53,7 +53,8 @@ At the end of your awakeFromCib method, add the Translator initialisation. Here 
     
 The next line gives Translator access to all the views of your application :
     
-    [theTranslator addViewsToViewsToTranslate:[[CPApplication sharedApplication] topLevelViewsForTranslatorAutoLayout]];
+    [theTranslator addViewsToViewsToTranslate:[[CPApplication sharedApplication] 
+        topLevelViewsForTranslatorAutoLayout]];
     
 Next, specify which main menu to translate :
     
@@ -80,15 +81,15 @@ What I personally do is to first try to load user's preferences and if it's OK, 
 
 For example :
 
-    [theTranslator tryToSetLanguage:(preferencesLoaded ? [preferencesController valueForKey:@"langue"] : nil) ifNeededUseUrlArgumentNamed:@"userlang" ifNeededUseBrowserLanguage:YES];
+    [theTranslator tryToSetLanguage:(preferencesLoaded ? 
+                                    [preferencesController valueForKey:@"langue"] : 
+                                    nil) 
+        ifNeededUseUrlArgumentNamed:@"userlang" 
+         ifNeededUseBrowserLanguage:YES];
 
 If you have a login panel, you can include a language menu and keep the user's choice as preferedLanguage.
 
-The method returns the language that has been set. So I save it as the user prefered language.
-
-    [preferencesController setValue:usedLanguage forPreference:@"langue"];
-    
-Remarque : the preferences controller is not part of Translator.
+The method returns the language that has been set (I save it as the user prefered language).
 
 
 And... Voilà ! Translator is working quietly...
@@ -104,7 +105,7 @@ So, all you have to do is to design your UI in your own language (which is then 
 
 Of course, you have to put in each language dictionary the translation like this :
 
-    \<key\>J'aime Cappuccino !\</key\>\<string\>I love Cappuccino !\</string\>
+    <key>J'aime Cappuccino !</key><string>I love Cappuccino !</string>
 
 (the key is simply the text between [[ and ]])
 
