@@ -31,9 +31,9 @@ Well, it's not :
 - copy the folder "Translator" (the one located in the Resources folder) to your Resources folder
 - edit your Info.plist and add :
 
-    - TranslatorDefaultLanguage <String> XX (where XX is the locale corresponding to the language in which your application is designed, for example "fr" or "en")
-    - TranslatorSupportedLanguages <Array> of <String> XX (where XX is a locale supported by your application, that is for which you provide a dictionary)
-    - (optional) TranslatorLanguageUrlArgument <String> XXXX (see further in this doc for details)
+    - TranslatorDefaultLanguage [String] XX (where XX is the locale corresponding to the language in which your application is designed, for example "fr" or "en")
+    - TranslatorSupportedLanguages [Array] of [String] XX (where XX is a locale supported by your application, that is for which you provide a dictionary)
+    - (optional) TranslatorLanguageUrlArgument [String] XXXX (see further in this doc for details)
     
     Please note that every locale specified here must exist in the Resources/Translator/TranslatorKnownLanguages.js file.
 
