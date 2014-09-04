@@ -5,9 +5,9 @@ Multilingual Cappuccino applications without multiple CIB files...
 
 ## What is CappuccinoTranslator ?
 
-CappuccinoTranslator, aka Translator, is a collection of categories and a controller that helps you in writing multilingual applications without having to maintain multiple CIB files.
+CappuccinoTranslator, aka Translator, helps you in writing multilingual applications without having to maintain multiple CIB files (I personally hate dealing with multiple CIB files because I always forget to make changes in other languages).
 
-Translator offers a variety of methods to ease your work, as, for example, some magic to autolayout buttons when translation modifies their width (see further in this document).
+Translator offers a variety of methods to ease your work, as, for example, some magic to autolayout buttons when translation modifies their width (see further in this document) or live language switching (e.g. without forcing the user to reload the application), etc.
 
 In fact, to be honest, Translator offers a variety of methods to ease my work...
 
@@ -25,7 +25,7 @@ Well, it's not :
 - clean (well, of course, magic also means some hacks)
 - bug free (but I hope it is)
 
-## How to use Translator in your project ? (aka quick start)
+## How to use Translator in your project ? (aka quick start guide)
 
 - copy the folder "Translator" (containing the two source files) to the root folder of your project
 - copy the folder "Translator" (the one located in the Resources folder) to your Resources folder
